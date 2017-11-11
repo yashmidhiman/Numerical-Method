@@ -39,6 +39,7 @@ for i in range(0,n):
 
 #Calculating elements of L and U
 for i in range(0,n):
+    #getting lower triangular matrix L.
     for j in range(0,n):
         if(j < i):
             L[j][i] = 0
@@ -46,6 +47,7 @@ for i in range(0,n):
             L[j][i] = A[j][i]
             for k in range(0,i):
                 L[j][i] = L[j][i] - L[j][k]*U[k][i]
+    #getting upper triangular matrix U.
     for j in range(0,n):
         if(j < i):
             U[i][j] = 0
@@ -104,6 +106,8 @@ print('')
 
 
 #######################for testing pupose only#########################
+print('')
+print('Test if the results are matched with actual A and A inverse')
 print('A')
 print(np.matmul(L,U))
 print('A inverse')
